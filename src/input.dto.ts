@@ -50,5 +50,5 @@ export class CollectionDto {
 
 function filterQueryToObject(v: string): Record<string, unknown> {
   console.log(v);
-  return JSON.parse(JSON.stringify(v));
+  return JSON.parse(v);
 }
