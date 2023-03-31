@@ -28,7 +28,7 @@ export class CollectionDto {
   @ApiPropertyOptional({
     example: '-createdAt;name',
     description:
-      'Use only allowed properties separated by semicolon; default is ascending created_at; prefix name with hyphen/minus sign to get descending order',
+      'Use only allowed properties separated by semicolon; default is ascending createdAt; prefix name with hyphen/minus sign to get descending order',
     type: String,
   })
   @IsOptional()
@@ -39,17 +39,16 @@ export class CollectionDto {
 
   @Type(() => Number)
   @Min(0)
-  @ApiPropertyOptional({ example: 0, description: '' })
+  @ApiPropertyOptional({ example: 0, description: 'The range based pagination' })
   readonly page?: number = 0;
 
   @Type(() => Number)
   @Min(0)
-  @ApiPropertyOptional({ example: 10, description: '' })
+  @ApiPropertyOptional({ example: 10, description: 'Limits the number of records or documents' })
   readonly limit?: number = 10;
 }
 
 function filterQueryToObject(v: string): Record<string, unknown> {
-//   const value = JSON.stringify(v);
   if (typeof v === 'object')
     return v;
   else if (typeof v === 'string')
