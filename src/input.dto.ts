@@ -49,8 +49,9 @@ export class CollectionDto {
 }
 
 function filterQueryToObject(v: string): Record<string, unknown> {
-  if (typeof v === 'string')
-    return JSON.parse(v);
+  const value = JSON.stringify(v);
+  if (typeof value === 'string')
+    return JSON.parse(value);
   else
     return {};
 //   try {
