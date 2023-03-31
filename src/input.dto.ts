@@ -54,7 +54,7 @@ function filterQueryToObject(v: string): Record<string, unknown> {
     const valuejs = JSON.parse(value);
     if (typeof valuejs === 'object')
       console.log('haha')
-    return {};
+    return valuejs;
   } else
     return {};
 }
