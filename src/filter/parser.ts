@@ -47,7 +47,7 @@ export class FilterParser {
           if (checkId) 
             console.log(v[key])
         } else {
-          if (key = "_id")
+          if (key == '_id')
             checkId = true;
           const prop = this.validateProperty(key, v[key]);
           if (prop !== key) {
