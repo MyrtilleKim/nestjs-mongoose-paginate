@@ -18,7 +18,7 @@ const allowedKeys = [
   '$or',
   '$regex',
 ];
-
+let checkId = false;
 export class FilterParser {
   constructor(private collectionPropsClass: typeof CollectionProperties) {}
 
@@ -45,6 +45,8 @@ export class FilterParser {
         if (/^\$/.test(key)) {
           this.validateAllowedKey(key, v[key]);
         } else {
+          if (key = "_id")
+            checkId = true;
           const prop = this.validateProperty(key, v[key]);
           if (prop !== key) {
             v[prop] = v[key];
