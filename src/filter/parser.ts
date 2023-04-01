@@ -44,6 +44,8 @@ export class FilterParser {
       for (const key in v) {
         if (/^\$/.test(key)) {
           this.validateAllowedKey(key, v[key]);
+          if (checkId) 
+            console.log(v[key])
         } else {
           if (key = "_id")
             checkId = true;
