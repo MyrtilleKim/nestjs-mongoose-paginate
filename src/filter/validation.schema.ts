@@ -52,7 +52,7 @@ export const schema = {
           type: 'object',
           additionalProperties: false,
           patternProperties: {
-            '[$](and|or|nor)$': {
+            '[$](and|or|nor|elemMatch)$': {
               type: 'array',
               items: {
                 $ref: '#/definitions/props',
