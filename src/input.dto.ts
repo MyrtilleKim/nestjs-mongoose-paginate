@@ -39,19 +39,39 @@ export class CollectionDto {
 
   @Type(() => Number)
   @Min(0)
-  @ApiPropertyOptional({ example: 0, description: 'The range based pagination' })
+  @ApiPropertyOptional({
+    example: 0,
+    description: 'The range based pagination',
+  })
   readonly page?: number = 0;
 
   @Type(() => Number)
   @Min(0)
-  @ApiPropertyOptional({ example: 10, description: 'Limits the number of records or documents' })
+  @ApiPropertyOptional({
+    example: 10,
+    description: 'Limits the number of records or documents',
+  })
   readonly limit?: number = 10;
+
+  @Type(() => String)
+  @IsOptional()
+  @ApiPropertyOptional({
+    example: 'channel',
+    description: 'Display these fields of group',
+  })
+  readonly display?: string[];
+
+  @Type(() => String)
+  @IsOptional()
+  @ApiPropertyOptional({
+    example: '64956c140b8801600801abde',
+    description: "User ID in Group's member",
+  })
+  readonly filterByUser?: string;
 }
 
 function filterQueryToObject(v: string): Record<string, unknown> {
-  if (typeof v === 'object')
-    return v;
-  else if (typeof v === 'string')
-    return JSON.parse(v);
+  if (typeof v === 'object') return v;
+  else if (typeof v === 'string') return JSON.parse(v);
   else return {};
 }

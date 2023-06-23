@@ -17,7 +17,6 @@ const allowedKeys = [
   '$nor',
   '$or',
   '$regex',
-  '$elemMatch'
 ];
 let checkId = false;
 export class FilterParser {
@@ -57,6 +56,7 @@ export class FilterParser {
           }
         }
       }
+      console.log(v)
       return v;
     }
   }
