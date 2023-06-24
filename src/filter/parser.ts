@@ -44,11 +44,9 @@ export class FilterParser {
       for (const key in v) {
         if (/^\$/.test(key)) {
           this.validateAllowedKey(key, v[key]);
-          if(checkId)
-            console.log(v[key])
+          if (checkId) console.log(v[key]);
         } else {
-          if(key == '_id')
-           checkId = true;
+          if (key == '_id') checkId = true;
           const prop = this.validateProperty(key, v[key]);
           if (prop !== key) {
             v[prop] = v[key];
@@ -56,7 +54,6 @@ export class FilterParser {
           }
         }
       }
-      console.log(v)
       return v;
     }
   }

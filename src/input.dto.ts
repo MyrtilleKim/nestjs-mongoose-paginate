@@ -52,22 +52,6 @@ export class CollectionDto {
     description: 'Limits the number of records or documents',
   })
   readonly limit?: number = 10;
-
-  @Type(() => String)
-  @IsOptional()
-  @ApiPropertyOptional({
-    example: 'channel',
-    description: 'Display these fields of group',
-  })
-  readonly display?: string[];
-
-  @Type(() => String)
-  @IsOptional()
-  @ApiPropertyOptional({
-    example: '64956c140b8801600801abde',
-    description: "User ID in Group's member",
-  })
-  readonly filterByUser?: string;
 }
 
 function filterQueryToObject(v: string): Record<string, unknown> {
